@@ -3,25 +3,25 @@ import reducers from './reducers.js';
 import { logMiddleware } from './middleware/logger.js';
 
 const defaultStore = window.defaultStore ? window.defaultStore : {
-/*	users: {
+	appointments: {
 		0: {
 			id: 0,
-			name: 'Hinz',
-			password: '123456',
+			date: 346347547345345,
+			description: 'Treffen',
 		},
 		1: {
 			id: 1,
-			name: 'Kunz',
-			password: 'test',
-		}
-	},*/
-	app: {
-		login: false,
+			date: 346347547356546,
+			description: 'Sitzung',
+		},
 	},
-	user: {
+	app: {
+		login: true,
+	},
+/*	user: {
 		admin: true,
 		id: 0,
-	}
+	}*/
 };
 
 
