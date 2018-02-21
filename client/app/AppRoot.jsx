@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
       BrowserRouter as Router,
       Route,
@@ -8,31 +9,36 @@ import {
 
 import 'APP/BaseStyle.less';
 import { initServiceWorker } from 'UTIL/serviceWorker.js';
+import Login from 'VIEWS/Login.jsx';
+import Overview from 'VIEWS/Overview.jsx';
 
-export default class App extends React.Component {
+export class AppRoot extends React.Component {
     constructor(props) {
         super();
 
         this.state = { }
     }
 
-    componentWillMount() {}
-    componentDidMount() {
-        initServiceWorker();
-    }
-    componentWillUnmount() {}
-
-    componentWillReceiveProps() {}
-    shouldComponentUpdate() {}
-    componentWillUpdate() {}
-    componentDidUpdate() {}
-
     render() {
-        return (<Router>
-            <Switch>
-                <Route path="/" exact render={() => <div></div>} />
-                <Redirect to="/" />
-            </Switch>
-        </Router>);
+        return (
+            <div>
+                <h1>Terminplaner</h1>
+                <Router>
+                    <Switch>
+                        { 
+                          !this.props.app.login && <Route path="/" exact render={() => <Login />} />
+                        }
+                        <Route path="/" exact render={() => <Overview />} />
+                        <Redirect to="/" />
+                    </Switch>
+                </Router>
+            </div>
+        );
     }
 }
+
+const mapStateToProps = (state, ownProps) => ({
+    app: state.app,
+});
+
+export default connect(mapStateToProps, {})(AppRoot);

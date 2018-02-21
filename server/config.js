@@ -1,4 +1,4 @@
-let root_dir = '/home/florianr/react-base',
+let root_dir = '/home/fgehring/Dokumente/privat/terminplaner',
     config = {
         client: root_dir + '/dist/',
         server: root_dir + '/server/',
