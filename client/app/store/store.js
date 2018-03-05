@@ -8,15 +8,39 @@ const defaultStore = window.defaultStore ? window.defaultStore : {
 			id: 0,
 			date: 346347547345345,
 			description: 'Treffen',
+			room: 1,
+			user: 0,
 		},
 		1: {
 			id: 1,
 			date: 346347547356546,
 			description: 'Sitzung',
+			room: 0,
+			user: 1,
 		},
 	},
 	app: {
 		login: true,
+	},
+	rooms: {
+		0: {
+			id: 0,
+			name: "Küche",
+		},
+		1: {
+			id: 1,
+			name: "Büro",
+		}
+	},
+	users: {
+		0: {
+			id: 0,
+			name: "Friedrich",
+		},
+		1: {
+			id: 1,
+			name: "Markus",
+		}
 	},
 /*	user: {
 		admin: true,
