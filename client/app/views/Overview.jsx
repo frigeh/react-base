@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { logout } from 'STORE/actions.js';
 import Appointment from 'COMP/Appointment.jsx';
 import NewAppointmentDialog from 'COMP/NewAppointmentDialog.jsx';
+import { new_appointment_dialog } from 'STORE/actions.js'
 
-export class Logout extends React.Component {
+export class Overview extends React.Component {
     constructor(props) {
         super();
 
@@ -20,8 +21,7 @@ export class Logout extends React.Component {
         return (
             <div>
                 <h2>Termine</h2>
-                    <button id="new-appointment">Neuen Termin anlegen</button> 
-                    <NewAppointmentDialog />
+                    <button id="new-appointment" onClick={this.props.new_appointment_dialog.bind(this)}>Neuen Termin anlegen</button>
                     <div className="row overview-table-headline">
                         <div className="col-sm-2">Datum</div>
                         <div className="col-sm-1">Zeit</div>
@@ -41,4 +41,4 @@ const mapStateToProps = (state, ownProps) => ({
     appointments: state.appointments
 });
 
-export default connect(mapStateToProps, { logout })(Logout);
+export default connect(mapStateToProps, { logout, new_appointment_dialog })(Overview);

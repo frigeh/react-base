@@ -11,6 +11,7 @@ import 'APP/BaseStyle.less';
 import { initServiceWorker } from 'UTIL/serviceWorker.js';
 import Login from 'VIEWS/Login.jsx';
 import Overview from 'VIEWS/Overview.jsx';
+import DialogController from 'COMP/DialogController.jsx';
 
 export class AppRoot extends React.Component {
     constructor(props) {
@@ -32,6 +33,7 @@ export class AppRoot extends React.Component {
                         <Redirect to="/" />
                     </Switch>
                 </Router>
+                <DialogController dialog={this.props.app.dialog} />
             </div>
         );
     }

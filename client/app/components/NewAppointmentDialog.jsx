@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { formatDate, formatTime } from 'UTIL/date.js';
+import Dialog from 'COMP/Dialog.jsx'
+import { close_dialog } from 'STORE/actions.js'
 
 export class NewAppointmentDialog extends React.Component {
     constructor(props) {
@@ -9,33 +11,29 @@ export class NewAppointmentDialog extends React.Component {
         this.state = { };
     }
 
-    componentDidMount() {
-        var newAppointment = document.getElementById("new-appointment"),
-            dialog = document.getElementById('new-appointment-dialog'),
-            close = document.getElementById("new-appointment-close");
-
-        newAppointment.addEventListener('click',showDialog);
-        close.addEventListener('click',closeDialog);
-
-        function showDialog() {
-          dialog.showModal();
-        }
-
-        function closeDialog(){
-          dialog.close();
-        }
+    cancel() {
+      this.props.close_dialog();
     }
 
     render() {
         const {appointment, rooms, users} = this.props;
 
         return (
-            <dialog id="new-appointment-dialog">
-                <h2>Neuer Termin</h2>
-                <p> Dies ist eine zugängliche Dialog-Box, die Sie auch mit der Tastatur benutzen können.</p>
-                <button id="new-appointment-close">Schließen</button>
-            </dialog>
-        );
+          <Dialog className="NewAppointmentDialog">
+            <div className="titlebar">
+              <h3>34534</h3>
+              <span className="fa fa-times push-right pointer" onClick={this.cancel.bind(this)} />
+            </div>
+            <div className="body">
+              <p>jhgfkjgkhgfj</p>
+            </div>
+            <div className="foot">
+              <button type="button" className="cancel" onClick={this.cancel.bind(this)}>
+                close
+              </button>
+            </div>
+          </Dialog>
+        )
     }
 }
 
@@ -43,6 +41,7 @@ const mapStateToProps = (state, ownProps) => ({
     appointment: state.appointments[ownProps.id],
     rooms: state.rooms,
     users: state.users,
+    app: state.app,
 });
 
-export default connect(mapStateToProps, { })(NewAppointmentDialog);
+export default connect(mapStateToProps, { close_dialog })(NewAppointmentDialog);

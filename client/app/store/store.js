@@ -21,6 +21,8 @@ const defaultStore = window.defaultStore ? window.defaultStore : {
 	},
 	app: {
 		login: true,
+		dialog: '',
+		errors: {}
 	},
 	rooms: {
 		0: {
