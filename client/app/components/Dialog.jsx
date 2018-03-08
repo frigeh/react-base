@@ -1,6 +1,7 @@
-import React from 'react'
-import { close_dialog } from 'STORE/actions.js'
-import { connect } from 'react-redux'
+import React from 'react';
+import { close_dialog } from 'STORE/actions.js';
+import { connect } from 'react-redux';
+import './Dialog.less';
 
 export class Dialog extends React.Component {
   constructor() {

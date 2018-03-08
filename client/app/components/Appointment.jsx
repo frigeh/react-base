@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './Appointment.less';
 import { formatDate, formatTime } from 'UTIL/date.js';
 
 export class Appointment extends React.Component {

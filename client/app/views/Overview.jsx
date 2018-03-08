@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { logout } from 'STORE/actions.js';
 import Appointment from 'COMP/Appointment.jsx';
 import NewAppointmentDialog from 'COMP/NewAppointmentDialog.jsx';
-import { new_appointment_dialog } from 'STORE/actions.js'
+import { new_appointment_dialog } from 'STORE/actions.js';
+import './Overview.less';
 
 export class Overview extends React.Component {
     constructor(props) {

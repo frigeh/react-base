@@ -44,10 +44,10 @@ const defaultStore = window.defaultStore ? window.defaultStore : {
 			name: "Markus",
 		}
 	},
-/*	user: {
+	user: {
 		admin: true,
 		id: 0,
-	}*/
+	},
 };
 
 
